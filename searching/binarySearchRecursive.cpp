@@ -10,7 +10,6 @@
 * average O(logn)
 ********************************/
 
-
 #include <iostream>
 
 using namespace std;
@@ -19,23 +18,26 @@ int binarySearchRecursive(int array[], int l, int r, int item);
 
 int main(void)
 {
+    cout << "Hello!" << endl;
     int numbers[7] = {2, 7, 22, 25, 27, 28, 29};
-    cout << binarySearchRecursive(numbers, 0, 6, 229);
+    cout << binarySearchRecursive(numbers, 0, 6, 27);
 }
 
 int binarySearchRecursive(int array[], int l, int r, int item)
 {
-    int m = (l + r) / 2;
-    if (l <= r)
+    if (r>=l)
     {
+        int m = (l + r) /2; 
         if (array[m] == item)
             return m;
         else if (item > array[m])
             binarySearchRecursive(array, m + 1, r, item);
-
-        else if (item < array[m])
+        else
             binarySearchRecursive(array, l, m - 1, item);
     }
+    else {
+    
+	return -1;    
+    }
 
-    return -1;
 }
